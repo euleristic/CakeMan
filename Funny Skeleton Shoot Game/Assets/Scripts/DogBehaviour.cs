@@ -19,6 +19,8 @@ public class DogBehaviour : MonoBehaviour, IDamagable
     [SerializeField] float gravity;
     [SerializeField] Sprite neutralSprite;
     [SerializeField] Sprite angrySprite;
+    [SerializeField] int bonesDrop;
+    [SerializeField] GameObject BoneToPick;
 
     [Header("Don't change me!")]
     [SerializeField] Sensor forward;
@@ -98,5 +100,10 @@ public class DogBehaviour : MonoBehaviour, IDamagable
         hp -= damage;
         if (hp <= 0)
             throw new System.NotImplementedException();
+    }
+
+    private void Die()
+    {
+        //for (int)
     }
 }
