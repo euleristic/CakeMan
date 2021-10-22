@@ -11,7 +11,14 @@ public class LookAt : MonoBehaviour
     }
     private void Update()
     {
-        transform.right = Vector3.Lerp(transform.right, cam.ScreenToWorldPoint((Input.mousePosition-transform.position)), 0.6f * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z);
+        Quaternion inital_rotation = transform.rotation;
+
+        transform.right = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+        Quaternion to_rotation = transform.rotation;
+
+        transform.rotation = Quaternion.Slerp(inital_rotation, to_rotation, 0.6f * Time.deltaTime);
+
+        transform.rotation = Quaternion.Euler(0f, 0f, transform.eulerAngles.z);
     }
 }
