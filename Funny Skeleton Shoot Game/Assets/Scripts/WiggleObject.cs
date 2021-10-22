@@ -26,6 +26,9 @@ public class WiggleObject : MonoBehaviour
         if (clampNegative) root = Mathf.Max(root, 0f);
         if (clampPositive) root = Mathf.Min(root, 0f);
 
-        transform.rotation = Quaternion.Euler(0f,0f, startRot + root * wiggleAngle);
+        root *= input;
+
+
+        transform.localRotation = Quaternion.Euler(0f,0f, startRot + root * wiggleAngle);
     }
 }
