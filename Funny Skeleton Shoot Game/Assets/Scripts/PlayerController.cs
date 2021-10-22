@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         foreach(var v in wigglers)
         {
-            v.SetInputFloat(Mathf.Min(Mathf.Abs(rigidbody.velocity.x / 30), 2f));
+            v.SetInputFloat(Mathf.Min(Mathf.Abs(rigidbody.velocity.x / 10), 2f));
         }
     }
 
