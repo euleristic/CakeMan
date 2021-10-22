@@ -15,8 +15,13 @@ public class DogBehaviour : MonoBehaviour
     [SerializeField] float walkSpeed;
     [SerializeField] float runSpeed;
     [SerializeField] float detectionRange;
+    [SerializeField] float gravity;
 
-    CharacterController controller;
+    [Header("Don't change me!")]
+    [SerializeField] Sensor forward;
+    [SerializeField] Sensor forwardDown;
+    [SerializeField] Sensor down;
+
     GameObject player;
     bool facingRight;
     float detectionSqr;
@@ -28,24 +33,41 @@ public class DogBehaviour : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
             Destroy(this);
-        controller = GetComponent<CharacterController>();
+        detectionSqr = detectionRange * detectionRange;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //x
         Vector3 playerRelative = player.transform.position - transform.position;
         if (playerRelative.sqrMagnitude < detectionSqr)
         {
             currentState = State.Chasing;
             velocity.x = new Vector2(playerRelative.x, 0f).normalized.x * runSpeed;
+            if ((velocity.x < 0f && facingRight ||
+                 velocity.x > 0f && !facingRight) && Mathf.Abs(playerRelative.x) > .1f)
+            {
+                facingRight = !facingRight;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }    
         }
         else
         {
-            //controller.
+            currentState = State.Walking;
+            if (forward.Triggered() || !forwardDown.Triggered())
+            {
+                facingRight = !facingRight;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }
+            velocity.x = (facingRight ? walkSpeed : -walkSpeed);
         }
 
+        //y
+        if (down.Triggered()) velocity.y = Mathf.Max(velocity.y, 0f);
+        else velocity.y += gravity * Time.deltaTime;
 
-        controller.Move(velocity);
+        //apply
+        transform.position += velocity * Time.deltaTime;
     }
 }
