@@ -6,7 +6,7 @@ using UnityEngine;
 public class MarimbaPlayer : MonoBehaviour
 {
     [SerializeField] float notesPerSecond;
-    [SerializeField] List<AudioClip> noteClips = new List<AudioClip>();
+    public List<AudioClip> noteClips = new List<AudioClip>();
     public bool playing;
     int lastPlayed;
     float timer = 0f;
@@ -34,7 +34,7 @@ public class MarimbaPlayer : MonoBehaviour
     {
         int random = (Random.Range(0, noteClips.Count - 1));
         if (random >= lastPlayed) random++;
-
+        lastPlayed = random;
         return random;
     }
 }
