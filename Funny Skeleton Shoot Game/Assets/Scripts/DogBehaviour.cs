@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DogBehaviour : MonoBehaviour
+public class DogBehaviour : MonoBehaviour, IDamagable
 {
     enum State
     {
@@ -91,5 +91,12 @@ public class DogBehaviour : MonoBehaviour
 
         //apply
         transform.position += velocity * Time.deltaTime;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+            throw new System.NotImplementedException();
     }
 }
