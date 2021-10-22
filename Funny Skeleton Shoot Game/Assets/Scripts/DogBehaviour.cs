@@ -19,6 +19,12 @@ public class DogBehaviour : MonoBehaviour, IDamagable
     [SerializeField] float gravity;
     [SerializeField] Sprite neutralSprite;
     [SerializeField] Sprite angrySprite;
+    [SerializeField] float boneMaxX;
+    [SerializeField] float boneMaxY;
+    [SerializeField] float boneMaxXVel;
+    [SerializeField] float boneMaxYVel;
+    [SerializeField] float boneMinYVel;
+    [SerializeField] float boneMaxAng;
     [SerializeField] int bonesDrop;
     [SerializeField] GameObject BoneToPick;
 
@@ -41,6 +47,7 @@ public class DogBehaviour : MonoBehaviour, IDamagable
             Destroy(this);
         detectionSqr = detectionRange * detectionRange;
         spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -87,23 +94,31 @@ public class DogBehaviour : MonoBehaviour, IDamagable
             velocity.x = (facingRight ? walkSpeed : -walkSpeed);
         }
 
-        //y
-        if (down.Triggered()) velocity.y = Mathf.Max(velocity.y, 0f);
-        else velocity.y += gravity * Time.deltaTime;
-
         //apply
         transform.position += velocity * Time.deltaTime;
+
+        //y
+        if (down.Triggered()) velocity.y = Mathf.Max(velocity.y, 0f);
+        else velocity.y += Mathf.Max(gravity * Time.deltaTime);
     }
 
     public void TakeDamage(int damage)
     {
         hp -= damage;
         if (hp <= 0)
-            throw new System.NotImplementedException();
+            Die();
     }
 
     private void Die()
     {
-        //for (int)
+        for (int i = 0; i < bonesDrop; i++)
+        {
+            Rigidbody2D rb = Instantiate(BoneToPick, transform.position + 
+                new Vector3(Random.Range(-boneMaxX, boneMaxX), Random.Range(0f, boneMaxY)),
+                Quaternion.identity).GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(Random.Range(-boneMaxYVel, boneMaxYVel), Random.Range(boneMinYVel, boneMaxYVel));
+            rb.angularVelocity = Random.Range(-boneMaxAng, boneMaxAng);
+        }
+        Destroy(gameObject);
     }
 }

@@ -54,6 +54,12 @@ MonoBehaviour:
   gravity: -9.8
   neutralSprite: {fileID: 21300000, guid: a8600ff0ea3ff8943a5a92167c04ed0b, type: 3}
   angrySprite: {fileID: 21300000, guid: 391e875fa4d92b14c8fe1dd6dbc6befe, type: 3}
+  boneMaxX: 5
+  boneMaxY: 4
+  boneMinY: 2
+  boneMaxAng: 180
+  bonesDrop: 4
+  BoneToPick: {fileID: 3295529261807187504, guid: cca5578bff80d1446a95c43c6f4795af, type: 3}
   forward: {fileID: 9193918541884794722}
   forwardDown: {fileID: 1664770195656926783}
   down: {fileID: 6540087131115966919}
@@ -135,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7171145264463766673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -3.1, z: 0}
+  m_LocalPosition: {x: 0.2, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2256780620492804203}
