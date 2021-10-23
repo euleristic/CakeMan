@@ -39,6 +39,7 @@ public class DogBehaviour : MonoBehaviour, IDamagable
     bool facingRight;
     float detectionSqr;
     Vector3 velocity;
+    [SerializeField] private AudioClip dieSound;
 
     void Start()
     {
@@ -135,6 +136,7 @@ public class DogBehaviour : MonoBehaviour, IDamagable
                 Destroy(rb?.gameObject, 5f);
             }
         }
+        SoundEffectPlayer.PlaySoundEffect(dieSound, 1f, 1f / transform.localScale.x);
         transform.DetachChildren();
         Destroy(gameObject);
     }

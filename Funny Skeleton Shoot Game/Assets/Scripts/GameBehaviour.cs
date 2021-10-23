@@ -19,6 +19,8 @@ public class GameBehaviour : MonoBehaviour, IDamagable
     [SerializeField] float boneMaxAng;
     Vector3 startingPos;
 
+    [SerializeField] private AudioClip dieSound;
+
     void Start()
     {
         startingPos = transform.position;
@@ -58,6 +60,20 @@ public class GameBehaviour : MonoBehaviour, IDamagable
             rb.velocity = new Vector2(Random.Range(-boneMaxXVel, boneMaxXVel), Random.Range(boneMinYVel, boneMaxYVel));
             rb.angularVelocity = Random.Range(-boneMaxAng, boneMaxAng);
         }
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var rb = transform.GetChild(i).gameObject.AddComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                var force = Random.Range(10f, 15f);
+                rb?.AddForce(new Vector3(Random.Range(-1f, 1f), 1) * force, ForceMode2D.Impulse);
+                rb.angularVelocity = Random.Range(-10000f, 10000f);
+                Destroy(rb?.gameObject, 5f);
+            }
+        }
+        SoundEffectPlayer.PlaySoundEffect(dieSound, 1f, 1f);
+        transform.DetachChildren();
         Destroy(gameObject);
     }
 
