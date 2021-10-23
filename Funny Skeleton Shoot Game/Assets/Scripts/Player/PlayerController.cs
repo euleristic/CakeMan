@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     private Rigidbody2D rigidbody;
     private bool grounded;
+    float lastDamage, invincibility = 0.5f;
 
     private WiggleObject[] wigglers;
 
@@ -87,6 +88,18 @@ public class PlayerController : MonoBehaviour, IDamagable
         bone.Throw(cam.ScreenToWorldPoint(Input.mousePosition) -transform.position, throwStrength, sprites[throwableBones].sprite);
     }
 
+    private void ThrowBone(Vector2 dir)
+    {
+        if (throwableBones < 1) return;
+        throwableBones--;
+
+        UpdateBoneVisibilities();
+
+        var bone = Instantiate(throwableBone, throwStart.position, transform.rotation);
+        bone.damage = damage;
+        bone.Throw(dir.normalized, throwStrength, sprites[throwableBones].sprite);
+    }
+
     private void UpdateBoneVisibilities()
     {
         for (int i = 0; i < sprites.Length; i++)
@@ -116,8 +129,26 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damage)
     {
-        throwableBones -= damage;
+        if(Time.time < lastDamage + invincibility)
+        {
+            return;
+        }
+
+        rigidbody.AddForce(Vector2.up * damage * 10, ForceMode2D.Impulse);
+
         if (throwableBones <= 0)
+        {
             SceneManager.LoadScene(0);
+        }
+        else
+        {
+            ThrowBone(Vector2.up + Vector2.right * Random.RandomRange(-1f, 1f));
+        }
+        UpdateBoneVisibilities();
+    }
+
+    public bool CheckForWin()
+    {
+        return transform.position.x > 964f;
     }
 }

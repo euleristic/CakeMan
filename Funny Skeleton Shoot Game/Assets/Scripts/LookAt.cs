@@ -17,7 +17,7 @@ public class LookAt : MonoBehaviour
 
         Quaternion to_rotation = transform.rotation;
 
-        transform.rotation = Quaternion.Slerp(inital_rotation, to_rotation, 0.9f * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(inital_rotation, to_rotation, 6f * Time.deltaTime);
 
         transform.rotation = Quaternion.Euler(0f, 0f, transform.eulerAngles.z);
     }
