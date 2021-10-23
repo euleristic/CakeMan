@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private WiggleObject[] wigglers;
 
-    private int throwableBones;
+    [SerializeField] private int throwableBones;
 
     [SerializeField] private SpriteRenderer[] sprites;
     [SerializeField] private Transform throwStart;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
         wigglers = GetComponentsInChildren<WiggleObject>();
         rigidbody = GetComponent<Rigidbody2D>();
-        throwableBones = sprites.Length;
+        UpdateBoneVisibilities();
     }
     private void Update()
     {
