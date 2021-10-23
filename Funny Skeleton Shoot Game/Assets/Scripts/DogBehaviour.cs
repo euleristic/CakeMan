@@ -50,7 +50,7 @@ public class DogBehaviour : MonoBehaviour, IDamagable
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (toState != currentState)
@@ -120,7 +120,7 @@ public class DogBehaviour : MonoBehaviour, IDamagable
             Rigidbody2D rb = Instantiate(BoneToPick, transform.position + 
                 new Vector3(Random.Range(-boneMaxX, boneMaxX), Random.Range(0f, boneMaxY)),
                 Quaternion.identity).GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(Random.Range(-boneMaxYVel, boneMaxYVel), Random.Range(boneMinYVel, boneMaxYVel));
+            rb.velocity = new Vector2(Random.Range(-boneMaxXVel, boneMaxXVel), Random.Range(boneMinYVel, boneMaxYVel));
             rb.angularVelocity = Random.Range(-boneMaxAng, boneMaxAng);
         }
         Destroy(gameObject);
