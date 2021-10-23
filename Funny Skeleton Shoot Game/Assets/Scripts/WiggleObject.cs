@@ -39,7 +39,7 @@ public class WiggleObject : MonoBehaviour
 
         var c = Mathf.Sign(root);
 
-        if(spr.enabled &&  clip != null  && c != lastCosSign)
+        if(spr != null && spr.enabled &&  clip != null  && c != lastCosSign) //fåneri
         {
             SoundEffectPlayer.PlaySoundEffect(clip, Mathf.Min(input, 1f), 3f, 0.3f, Mathf.Max(input, 1f) / 10f);
         }

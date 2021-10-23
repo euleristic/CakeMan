@@ -6,8 +6,10 @@ public class ThrowBone : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField] private BoneToPick pickup;
+    [SerializeField] private AudioClip tossSound;
     private void Awake()
     {
+        SoundEffectPlayer.PlaySoundEffect(tossSound, 1f, 1f, 0.15f);
         rb = GetComponent<Rigidbody2D>();
     }
     public void Throw(Vector2 direction, float throwPower, Sprite spr = null)

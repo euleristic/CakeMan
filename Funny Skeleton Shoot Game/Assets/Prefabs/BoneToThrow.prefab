@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 3637690608589661751, guid: cca5578bff80d1446a95c43c6f4795af, type: 3}
+  tossSound: {fileID: 8300000, guid: 4f61a317e0ab9264a9811f881a13e526, type: 3}

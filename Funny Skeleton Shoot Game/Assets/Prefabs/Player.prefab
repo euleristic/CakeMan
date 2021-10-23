@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &90586465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90586466}
+  m_Layer: 7
+  m_Name: ThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90586466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90586465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.77, y: 1.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1199086237124011328}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1199086235483287901
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199086235483287902}
   - component: {fileID: 1199086235483287903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +123,7 @@ GameObject:
   - component: {fileID: 1199086235803848884}
   - component: {fileID: 1199086235803848891}
   - component: {fileID: 1199086235803848890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ribs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,8 +211,11 @@ MonoBehaviour:
   wiggleSpeed: 3
   wiggleAngle: 3
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086235830887813
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +227,7 @@ GameObject:
   - component: {fileID: 1199086235830887808}
   - component: {fileID: 1199086235830887815}
   - component: {fileID: 1199086235830887814}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ribs2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,8 +315,11 @@ MonoBehaviour:
   wiggleSpeed: 3
   wiggleAngle: -3
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086235865987087
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +331,7 @@ GameObject:
   - component: {fileID: 1199086235865987080}
   - component: {fileID: 1199086235865987081}
   - component: {fileID: 1199086235865987082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,8 +419,11 @@ MonoBehaviour:
   wiggleSpeed: 6
   wiggleAngle: -45
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: 7fc163f3ea3cf364fa22353ce948b862, type: 3}
 --- !u!1 &1199086236193120724
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +435,7 @@ GameObject:
   - component: {fileID: 1199086236193120725}
   - component: {fileID: 1199086236193120727}
   - component: {fileID: 1199086236193120726}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,8 +524,11 @@ MonoBehaviour:
   wiggleSpeed: 6
   wiggleAngle: 15
   input: 1
+  offset: 0
   clampPositive: 1
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086236368899129
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +540,7 @@ GameObject:
   - component: {fileID: 1199086236368899124}
   - component: {fileID: 1199086236368899131}
   - component: {fileID: 1199086236368899130}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ribs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,8 +630,11 @@ MonoBehaviour:
   wiggleSpeed: 3
   wiggleAngle: 3
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086236413751539
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1199086236413751532}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Skrellington
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +677,7 @@ GameObject:
   - component: {fileID: 1199086236514008654}
   - component: {fileID: 1199086236514008655}
   - component: {fileID: 1199086236514008648}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hEAD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,8 +766,11 @@ MonoBehaviour:
   wiggleSpeed: 3
   wiggleAngle: 15
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086236531853911
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +782,7 @@ GameObject:
   - component: {fileID: 1199086236531853904}
   - component: {fileID: 1199086236531853905}
   - component: {fileID: 1199086236531853906}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: l thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,8 +871,11 @@ MonoBehaviour:
   wiggleSpeed: 6
   wiggleAngle: 45
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086236787320448
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,7 +887,7 @@ GameObject:
   - component: {fileID: 1199086236787320449}
   - component: {fileID: 1199086236787320451}
   - component: {fileID: 1199086236787320450}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,8 +976,11 @@ MonoBehaviour:
   wiggleSpeed: 6
   wiggleAngle: 15
   input: 1
+  offset: 0
   clampPositive: 1
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086236836916254
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,9 +993,9 @@ GameObject:
   - component: {fileID: 1199086236836916249}
   - component: {fileID: 1199086236836916248}
   - component: {fileID: 1199086236836916255}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -996,13 +1050,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpHeight: 20
+  throwStrength: 1000
   sprites:
+  - {fileID: 1199086237124011335}
+  - {fileID: 1199086236514008655}
   - {fileID: 1199086236998511310}
   - {fileID: 1199086235803848891}
   - {fileID: 1199086235830887815}
   - {fileID: 1199086236368899131}
   - {fileID: 1199086235865987081}
   - {fileID: 1199086237271034258}
+  - {fileID: 1199086237271034258}
+  throwStart: {fileID: 90586466}
+  throwableBone: {fileID: -5631448870755971687, guid: 4e23d6c85e0f5e0438b28b273c8fe66d, type: 3}
 --- !u!70 &1199086236836916255
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1030,7 +1090,7 @@ GameObject:
   - component: {fileID: 1199086236998511308}
   - component: {fileID: 1199086236998511310}
   - component: {fileID: 1199086236998511309}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: jaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,8 +1178,11 @@ MonoBehaviour:
   wiggleSpeed: 10
   wiggleAngle: 15
   input: 1
+  offset: 0
   clampPositive: 1
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086237124011333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1194,7 @@ GameObject:
   - component: {fileID: 1199086237124011328}
   - component: {fileID: 1199086237124011335}
   - component: {fileID: 1199086237124011329}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,6 +1216,7 @@ Transform:
   - {fileID: 1199086236368899124}
   - {fileID: 1199086235830887808}
   - {fileID: 1199086235803848884}
+  - {fileID: 90586466}
   m_Father: {fileID: 1199086237295381171}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1230,7 +1294,7 @@ GameObject:
   - component: {fileID: 1199086237271034257}
   - component: {fileID: 1199086237271034258}
   - component: {fileID: 1199086237271034259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: arm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,8 +1382,11 @@ MonoBehaviour:
   wiggleSpeed: 6
   wiggleAngle: 45
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086237295381169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1398,7 @@ GameObject:
   - component: {fileID: 1199086237295381171}
   - component: {fileID: 1199086237295381170}
   - component: {fileID: 1199086237295381164}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1422,8 +1489,11 @@ MonoBehaviour:
   wiggleSpeed: 6
   wiggleAngle: 15
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086237390131181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,7 +1505,7 @@ GameObject:
   - component: {fileID: 1199086237390131182}
   - component: {fileID: 1199086237390131176}
   - component: {fileID: 1199086237390131183}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: r thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1524,8 +1594,11 @@ MonoBehaviour:
   wiggleSpeed: 6
   wiggleAngle: -45
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 8300000, guid: e583566dbfcc86a429b6bbefcefbd0a3, type: 3}
 --- !u!1 &1199086237494234358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,7 +1609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199086237494234359}
   - component: {fileID: 1199086237494234352}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
