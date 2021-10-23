@@ -53,6 +53,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &743672979709533274
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +352,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 1
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &2812861711309399184
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +405,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &4008674079326803408
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +458,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &5349182822357172082
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +511,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &5653493259608091140
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +688,7 @@ GameObject:
   - component: {fileID: 8344182668533133048}
   - component: {fileID: 5030406037504829996}
   - component: {fileID: 692002792137997579}
+  - component: {fileID: 942408427}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -716,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa31ed25af823d43aea7eb09eb16051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 7
+  hp: 1
   inversePeriod: 1
   xSinAmp: 15
   ySinAmp: 1
@@ -728,6 +739,7 @@ MonoBehaviour:
   boneMinYVel: 4
   boneMaxYVel: 2
   boneMaxAng: 180
+  dieSound: {fileID: 8300000, guid: 0c7d25569d5072e47bbd95a40433f865, type: 3}
 --- !u!212 &692002792137997579
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -779,6 +791,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &942408427
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6844755174376478863}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.39032745, y: 1.2490349}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.42, y: 6.09}
+    newSize: {x: 3.42, y: 6.09}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.821304, y: 11.086132}
+  m_EdgeRadius: 0
 --- !u!1 &7776855493633803671
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +868,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 0
   clampNegative: 1
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &7862213594718632166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,3 +1085,5 @@ MonoBehaviour:
   offset: 3.1415925
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}

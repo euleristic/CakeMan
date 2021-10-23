@@ -13,6 +13,6 @@ public class SoundEffectPlayer : MonoBehaviour
         audio.volume = volume + Random.Range(-volumeVariance, volumeVariance);
         audio.pitch = pitch + Random.Range(-pitchVariance, pitchVariance);
         audio.Play();
-        Destroy(audio.gameObject, 1f);
+        Destroy(audio.gameObject, 2f);
     }
 }
