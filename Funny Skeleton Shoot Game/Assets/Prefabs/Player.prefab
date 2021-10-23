@@ -1051,6 +1051,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 20
   throwStrength: 1000
+  throwableBones: 0
   sprites:
   - {fileID: 1199086237124011335}
   - {fileID: 1199086236514008655}
@@ -1063,6 +1064,10 @@ MonoBehaviour:
   - {fileID: 1199086237271034258}
   throwStart: {fileID: 90586466}
   throwableBone: {fileID: -5631448870755971687, guid: 4e23d6c85e0f5e0438b28b273c8fe66d, type: 3}
+  boneAddSound: {fileID: 0}
+  damage: 1
+  milkStrengthTerm: 1
+  milkDrink: {fileID: 0}
 --- !u!70 &1199086236836916255
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
