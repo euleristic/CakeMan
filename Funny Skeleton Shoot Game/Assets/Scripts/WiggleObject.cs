@@ -6,23 +6,29 @@ public class WiggleObject : MonoBehaviour
 {
     public bool wiggling = true;
     private float startRot;
-    [SerializeField] private float wiggleSpeed = 1,   wiggleAngle = 15f, input = 1;
+    [SerializeField] private float wiggleSpeed = 1,   wiggleAngle = 15f, input = 1, offset = 0f;
     [SerializeField] private bool  clampPositive, clampNegative;
 
     private void Start()
     {
         startRot = transform.localRotation.eulerAngles.z;
+
     }
     public void SetInputFloat(float input_in)
     {
         input = input_in;
     }
+    public void SetWiggleSpeedFloat(float wiggleSpeed_in)
+    {
+        wiggleSpeed = wiggleSpeed_in;
+    }
+
     void Update()
     {
         if (!wiggling) return;
 
         float root;
-        root = Mathf.Sin(Time.time * wiggleSpeed);
+        root = Mathf.Sin(offset + Time.time * wiggleSpeed);
         if (clampNegative) root = Mathf.Max(root, 0f);
         if (clampPositive) root = Mathf.Min(root, 0f);
 

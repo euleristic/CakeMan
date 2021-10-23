@@ -29,11 +29,12 @@ public class DogBehaviour : MonoBehaviour, IDamagable
     [SerializeField] GameObject BoneToPick;
 
     [Header("Don't change me!")]
+    [SerializeField] SpriteRenderer headRenderer;
     [SerializeField] Sensor forward;
     [SerializeField] Sensor forwardDown;
     [SerializeField] Sensor down;
+    [SerializeField] WiggleObject[] legs;
 
-    SpriteRenderer spriteRenderer;
     GameObject player;
     bool facingRight;
     float detectionSqr;
@@ -46,7 +47,6 @@ public class DogBehaviour : MonoBehaviour, IDamagable
         if (player == null)
             Destroy(this);
         detectionSqr = detectionRange * detectionRange;
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
@@ -59,10 +59,14 @@ public class DogBehaviour : MonoBehaviour, IDamagable
             switch (currentState)
             {
                 case State.Walking:
-                    spriteRenderer.sprite = neutralSprite;
+                    headRenderer.sprite = neutralSprite;
+                    foreach (var leg in legs)
+                        leg.SetWiggleSpeedFloat(walkSpeed);
                     break;
                 case State.Chasing:
-                    spriteRenderer.sprite = angrySprite;
+                    headRenderer.sprite = angrySprite;
+                    foreach (var leg in legs)
+                        leg.SetWiggleSpeedFloat(runSpeed);
                     break;
                 default:
                     //what
