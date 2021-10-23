@@ -2,23 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DogBehaviour : MonoBehaviour, IDamagable
+public class ZoombieBehaviour : MonoBehaviour, IDamagable
 {
-    enum State
-    {
-        Walking,
-        Chasing
-    }
-    State currentState;
-    State toState;
-
     public int hp;
     [SerializeField] float walkSpeed;
     [SerializeField] float runSpeed;
     [SerializeField] float detectionRange;
     [SerializeField] float gravity;
-    [SerializeField] Sprite neutralSprite;
-    [SerializeField] Sprite angrySprite;
     [SerializeField] float boneMaxX;
     [SerializeField] float boneMaxY;
     [SerializeField] float boneMaxXVel;
@@ -29,11 +19,9 @@ public class DogBehaviour : MonoBehaviour, IDamagable
     [SerializeField] GameObject BoneToPick;
 
     [Header("Don't change me!")]
-    [SerializeField] SpriteRenderer headRenderer;
     [SerializeField] Sensor forward;
     [SerializeField] Sensor forwardDown;
     [SerializeField] Sensor down;
-    [SerializeField] WiggleObject[] legs;
 
     GameObject player;
     bool facingRight;
@@ -53,32 +41,10 @@ public class DogBehaviour : MonoBehaviour, IDamagable
 
     void Update()
     {
-        if (toState != currentState)
-        {
-            currentState = toState;
-            switch (currentState)
-            {
-                case State.Walking:
-                    headRenderer.sprite = neutralSprite;
-                    foreach (var leg in legs)
-                        leg.SetWiggleSpeedFloat(walkSpeed);
-                    break;
-                case State.Chasing:
-                    headRenderer.sprite = angrySprite;
-                    foreach (var leg in legs)
-                        leg.SetWiggleSpeedFloat(runSpeed);
-                    break;
-                default:
-                    //what
-                    break;
-            }
-        }
-
         //x
         Vector3 playerRelative = player.transform.position - transform.position;
         if (playerRelative.sqrMagnitude < detectionSqr)
         {
-            toState = State.Chasing;
             velocity.x = new Vector2(playerRelative.x, 0f).normalized.x * runSpeed;
             if ((velocity.x < 0f && facingRight ||
                  velocity.x > 0f && !facingRight) && Mathf.Abs(playerRelative.x) > .1f)
@@ -89,13 +55,12 @@ public class DogBehaviour : MonoBehaviour, IDamagable
         }
         else
         {
-            toState = State.Walking;
             if (forward.Triggered() || !forwardDown.Triggered())
             {
                 facingRight = !facingRight;
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             }
-            velocity.x = (facingRight ? walkSpeed : -walkSpeed);
+            velocity.x = facingRight ? walkSpeed : -walkSpeed;
         }
 
         //apply
