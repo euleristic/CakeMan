@@ -17,7 +17,7 @@ public class WiggleObject : MonoBehaviour
 
     private void Start()
     {
-        spr = GetComponent<SpriteRenderer>();
+        spr = GetComponentInChildren<SpriteRenderer>();
         startRot = transform.localRotation.eulerAngles.z;
 
     }
