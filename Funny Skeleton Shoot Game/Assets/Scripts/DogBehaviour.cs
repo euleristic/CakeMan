@@ -81,7 +81,7 @@ public class DogBehaviour : MonoBehaviour, IDamagable
             {
                 facingRight = !facingRight;
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            }    
+            }
         }
         else
         {
@@ -113,7 +113,7 @@ public class DogBehaviour : MonoBehaviour, IDamagable
     {
         for (int i = 0; i < bonesDrop; i++)
         {
-            Rigidbody2D rb = Instantiate(BoneToPick, transform.position + 
+            Rigidbody2D rb = Instantiate(BoneToPick, transform.position +
                 new Vector3(Random.Range(-boneMaxX, boneMaxX), Random.Range(0f, boneMaxY)),
                 Quaternion.identity).GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2(Random.Range(-boneMaxYVel, boneMaxYVel), Random.Range(boneMinYVel, boneMaxYVel));

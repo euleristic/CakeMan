@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed, jumpHeight;
+    [SerializeField] private float moveSpeed, jumpHeight, throwStrength;
     private Rigidbody2D rigidbody;
     private bool grounded;
 
@@ -13,9 +13,12 @@ public class PlayerController : MonoBehaviour
     private int throwableBones;
 
     [SerializeField] private SpriteRenderer[] sprites;
-
+    [SerializeField] private Transform throwStart;
+    [SerializeField] private ThrowBone throwableBone;
+    private Camera cam;
     private void Start()
     {
+        cam = Camera.main;
         wigglers = GetComponentsInChildren<WiggleObject>();
         rigidbody = GetComponent<Rigidbody2D>();
         throwableBones = sprites.Length;
@@ -47,12 +50,36 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpHeight);
     }
+
+    public bool GetBone()
+    {
+        if (throwableBones >= sprites.Length) return false;
+        throwableBones++;
+        UpdateBoneVisibilities();
+        return true;
+    }
     private void ThrowBone()
     {
+        if (throwableBones < 1) return;
         throwableBones--;
+
+        UpdateBoneVisibilities();
+
+        var bone = Instantiate(throwableBone, throwStart.position, transform.rotation);
+        
+        bone.Throw(cam.ScreenToWorldPoint(Input.mousePosition) -transform.position, throwStrength, sprites[throwableBones].sprite);
+    }
+
+    private void UpdateBoneVisibilities()
+    {
         for (int i = 0; i < sprites.Length; i++)
         {
             sprites[i].enabled = i < throwableBones;
         }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.transform.GetComponent<IPlayerCollide>()?.OnCollideWithPlayer(this);
     }
 }
