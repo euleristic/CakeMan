@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamagable
 {
     [SerializeField] private float moveSpeed, jumpHeight, throwStrength;
+
     private Rigidbody2D rigidbody;
     private bool grounded;
 
     private WiggleObject[] wigglers;
 
     [SerializeField] private int throwableBones;
-
+    
     [SerializeField] private SpriteRenderer[] sprites;
     [SerializeField] private Transform throwStart;
     [SerializeField] private ThrowBone throwableBone;
     [SerializeField] private AudioClip boneAddSound;
+    [SerializeField] int damage = 1;
+    [SerializeField] int milkStrengthTerm;
+    [SerializeField] AudioClip milkDrink;
     private Camera cam;
     private void Start()
     {
@@ -61,6 +67,14 @@ public class PlayerController : MonoBehaviour
             SoundEffectPlayer.PlaySoundEffect(boneAddSound, 1f, 1.2f, 0.125f);
         return true;
     }
+
+    public void DrinkMilk()
+    {
+        damage += milkStrengthTerm;
+        if (milkDrink != null)
+            SoundEffectPlayer.PlaySoundEffect(milkDrink, 1f, 1.2f, 0.125f);
+    }
+
     private void ThrowBone()
     {
         if (throwableBones < 1) return;
@@ -69,7 +83,7 @@ public class PlayerController : MonoBehaviour
         UpdateBoneVisibilities();
 
         var bone = Instantiate(throwableBone, throwStart.position, transform.rotation);
-        
+        bone.damage = damage;
         bone.Throw(cam.ScreenToWorldPoint(Input.mousePosition) -transform.position, throwStrength, sprites[throwableBones].sprite);
     }
 
@@ -98,5 +112,12 @@ public class PlayerController : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         collision.transform.GetComponent<IPlayerCollide>()?.OnCollideWithPlayer(this);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        throwableBones -= damage;
+        if (throwableBones <= 0)
+            SceneManager.LoadScene(0);
     }
 }

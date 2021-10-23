@@ -7,6 +7,7 @@ public class ThrowBone : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private BoneToPick pickup;
     [SerializeField] private AudioClip tossSound;
+    public int damage = 0;
     private void Awake()
     {
         SoundEffectPlayer.PlaySoundEffect(tossSound, 1.5f, 1f, 0.15f);
@@ -33,7 +34,7 @@ public class ThrowBone : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //do damage and stuff
-        collision.transform.GetComponent<IDamagable>()?.TakeDamage(1);
+        collision.transform.GetComponent<IDamagable>()?.TakeDamage(damage);
 
         if(collision.transform.GetComponent<ThrowBone>() == null)
             BecomeBoneToPick();
