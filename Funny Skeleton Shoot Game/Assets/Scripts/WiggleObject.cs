@@ -39,9 +39,11 @@ public class WiggleObject : MonoBehaviour
 
         var c = Mathf.Sign(root);
 
-        if(spr != null && spr.enabled &&  clip != null  && c != lastCosSign) //fåneri
+        if(spr != null && spr.enabled &&  clip != null  && c != lastCosSign && input > 0.1f) //fåneri
         {
-            SoundEffectPlayer.PlaySoundEffect(clip, Mathf.Min(input, 1f), 3f, 0.3f, Mathf.Max(input, 1f) / 10f);
+            //SoundEffectPlayer.PlaySoundEffect(clip, Mathf.Min(input, 1f), 3f, 0.3f, Mathf.Max(input, 1f) / 10f);
+            //SoundEffectPlayer.PlaySoundEffect(MusicManager.instance.GetCurrentChord()[Random.Range(0, MusicManager.instance.GetCurrentChord().Count)], Mathf.Min(0.7f, input));
+            StartCoroutine(DelaySound());
         }
         
         
@@ -54,5 +56,12 @@ public class WiggleObject : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0f,0f, startRot + root * wiggleAngle);
         lastCosSign = c;
 
+    }
+    private IEnumerator DelaySound()
+    {
+        yield return new WaitForSeconds(Random.Range(0f, 0.15f));
+        int mult = Random.Range(1, 3);
+        SoundEffectPlayer.PlaySoundEffect(MusicManager.instance.GetCurrentChord()[Random.Range(0, MusicManager.instance.GetCurrentChord().Count)], Mathf.Min(0.05f, input), 1f * mult);
+        yield return null;
     }
 }

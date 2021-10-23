@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2256780620492804203}
   - component: {fileID: 8844503954179761793}
   - component: {fileID: 655686042292628038}
+  - component: {fileID: 236637268}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 539503767552985976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 8643514969712681368}
   - {fileID: 5064913949337119619}
@@ -53,10 +54,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e165d45a46365da40baa5ecdba389dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
+  hp: 1
   walkSpeed: 1
   runSpeed: 4
-  detectionRange: 10
+  detectionRange: 40
   gravity: -9.8
   neutralSprite: {fileID: 21300000, guid: a1753276c9e648e4eab68a64d7f50249, type: 3}
   angrySprite: {fileID: 21300000, guid: e3c95d9c1330f094bbf83d7317ac88b9, type: 3}
@@ -128,6 +129,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &236637268
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539503767552985976}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.45519996, y: -0.45000005}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.58, y: 0.65}
+    oldSize: {x: 5.69, y: 3}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.69, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &1155080282222669748
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +370,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 1
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &2049567442103969388
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +505,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &2691945574829635059
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +641,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &3145971119019936951
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +776,8 @@ MonoBehaviour:
   offset: 3.1415925
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &5208565700161092845
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,6 +829,8 @@ MonoBehaviour:
   offset: 3.1415925
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &5687909258172353457
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +964,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &6801719354494614120
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1017,8 @@ MonoBehaviour:
   offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &7171145264463766673
 GameObject:
   m_ObjectHideFlags: 0

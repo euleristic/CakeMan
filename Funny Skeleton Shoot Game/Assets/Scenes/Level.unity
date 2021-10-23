@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &236637264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 539503767552985976, guid: 5797333a925ab2f44831d23ea56f4028, type: 3}
+  m_PrefabInstance: {fileID: 1087038491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &236637268
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236637264}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.45519996, y: -0.45000005}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.58, y: 0.65}
+    oldSize: {x: 5.69, y: 3}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.69, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &342065465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2067,63 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1001 &596381907
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 227060390565613272, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_Name
+      value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342611603524363898, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f0e3fc3df442334db4e2450856dad7c, type: 3}
 --- !u!1 &600344871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,6 +2236,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2256780620492804203, guid: 5797333a925ab2f44831d23ea56f4028, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256780620492804203, guid: 5797333a925ab2f44831d23ea56f4028, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256780620492804203, guid: 5797333a925ab2f44831d23ea56f4028, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.975476
       objectReference: {fileID: 0}
@@ -2196,6 +2292,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1199086236836916248, guid: a6bd9a40bbdef0a45b680259893c48d4, type: 3}
+      propertyPath: boneAddSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a148dfd1d332c704694640ac6a1508b4, type: 3}
     - target: {fileID: 1199086236836916250, guid: a6bd9a40bbdef0a45b680259893c48d4, type: 3}
       propertyPath: m_RootOrder
       value: 2

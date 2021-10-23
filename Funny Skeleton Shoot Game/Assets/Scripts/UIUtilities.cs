@@ -54,11 +54,11 @@ public class UIUtilities : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (transform.GetChild(i).CompareTag("Popup"))
-            {
-                _popups.Add(transform.GetChild(i));
-                transform.GetChild(i).gameObject.SetActive(false);
-            }
+            //if (transform.GetChild(i).CompareTag("Popup"))
+            //{
+            //    _popups.Add(transform.GetChild(i));
+            //    transform.GetChild(i).gameObject.SetActive(false);
+            //}
         }
     }
 }
