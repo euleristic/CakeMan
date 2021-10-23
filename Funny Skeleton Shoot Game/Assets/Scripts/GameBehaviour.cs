@@ -44,8 +44,8 @@ public class GameBehaviour : MonoBehaviour, IDamagable
     public void TakeDamage(int damage)
     {
         hp -= damage;
-        if (hp <= 0) ;
-            //do stuff
+        if (hp <= 0) 
+            Die();
     }
 
     private void Die()
