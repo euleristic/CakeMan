@@ -236,7 +236,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1299063598
+--- !u!1001 &458046399
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -246,14 +246,6 @@ PrefabInstance:
     - target: {fileID: 6844755174376478863, guid: b57afeffe599d73469d2fb32bca7fd87, type: 3}
       propertyPath: m_Name
       value: Game
-      objectReference: {fileID: 0}
-    - target: {fileID: 8090233074365042609, guid: b57afeffe599d73469d2fb32bca7fd87, type: 3}
-      propertyPath: wiggleAngle
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8090233074365042609, guid: b57afeffe599d73469d2fb32bca7fd87, type: 3}
-      propertyPath: wiggleSpeed
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8344182668533133048, guid: b57afeffe599d73469d2fb32bca7fd87, type: 3}
       propertyPath: m_RootOrder

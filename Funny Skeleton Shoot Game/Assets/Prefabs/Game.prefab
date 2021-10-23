@@ -676,6 +676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8344182668533133048}
+  - component: {fileID: 5030406037504829996}
   - component: {fileID: 692002792137997579}
   m_Layer: 0
   m_Name: Game
@@ -703,6 +704,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5030406037504829996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6844755174376478863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa31ed25af823d43aea7eb09eb16051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 7
+  inversePeriod: 1
+  xSinAmp: 15
+  ySinAmp: 1
+  bonesDrop: 4
+  boneToPick: {fileID: 3295529261807187504, guid: cca5578bff80d1446a95c43c6f4795af, type: 3}
+  boneMaxX: 1
+  boneMaxY: 1
+  boneMaxXVel: 5
+  boneMinYVel: 4
+  boneMaxYVel: 2
+  boneMaxAng: 180
 --- !u!212 &692002792137997579
 SpriteRenderer:
   m_ObjectHideFlags: 0
