@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Move(Input.GetAxis("Horizontal"));
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && IsGrounded())
             Jump();
         if(Input.GetButtonDown("Fire1"))
         {
@@ -80,6 +80,20 @@ public class PlayerController : MonoBehaviour
             sprites[i].enabled = i < throwableBones;
         }
     }
+
+    private bool IsGrounded()
+    {
+        var len = 3f;
+        var hit = Physics2D.Raycast(transform.position, Vector3.down, len);
+        Debug.DrawRay(transform.position, Vector3.down * len, Color.yellow, 1f);
+        if (hit)
+        {
+           return true;
+        }
+        return false;
+    }
+
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
