@@ -7,7 +7,7 @@ public class MenuNavigator : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OnExit()
@@ -15,8 +15,4 @@ public class MenuNavigator : MonoBehaviour
         Application.Quit();
     }
 
-    public void Settings()
-    {
-        SceneManager.LoadScene(2);
-    }
 }
