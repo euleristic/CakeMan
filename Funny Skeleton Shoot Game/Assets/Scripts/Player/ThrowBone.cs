@@ -9,7 +9,7 @@ public class ThrowBone : MonoBehaviour
     [SerializeField] private AudioClip tossSound;
     private void Awake()
     {
-        SoundEffectPlayer.PlaySoundEffect(tossSound, 1f, 1f, 0.15f);
+        SoundEffectPlayer.PlaySoundEffect(tossSound, 1.5f, 1f, 0.15f);
         rb = GetComponent<Rigidbody2D>();
     }
     public void Throw(Vector2 direction, float throwPower, Sprite spr = null)
@@ -33,6 +33,8 @@ public class ThrowBone : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //do damage and stuff
+        collision.transform.GetComponent<IDamagable>()?.TakeDamage(1);
+
         if(collision.transform.GetComponent<ThrowBone>() == null)
             BecomeBoneToPick();
     }

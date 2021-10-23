@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3923896106048065452}
   - component: {fileID: 3637690608589661751}
   - component: {fileID: 764499898555183208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BoneToPick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cac1f804c62e864db70ce01fb41d029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plop: {fileID: 8300000, guid: a148dfd1d332c704694640ac6a1508b4, type: 3}
 --- !u!58 &764499898555183208
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -95,7 +96,7 @@ GameObject:
   - component: {fileID: 6505936659783680805}
   - component: {fileID: 3978986996587293574}
   - component: {fileID: 2297606221817302073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,8 +184,11 @@ MonoBehaviour:
   wiggleSpeed: 4
   wiggleAngle: 90
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}
 --- !u!1 &9092378392540791606
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +200,7 @@ GameObject:
   - component: {fileID: 2824780414665370837}
   - component: {fileID: 8698202882900265833}
   - component: {fileID: 4744106399236496268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BoneSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,5 +288,8 @@ MonoBehaviour:
   wiggleSpeed: 1
   wiggleAngle: 15
   input: 1
+  offset: 0
   clampPositive: 0
   clampNegative: 0
+  lastCosSign: 1
+  clip: {fileID: 0}

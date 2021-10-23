@@ -123,6 +123,7 @@ public class DogBehaviour : MonoBehaviour, IDamagable
             rb.velocity = new Vector2(Random.Range(-boneMaxXVel, boneMaxXVel), Random.Range(boneMinYVel, boneMaxYVel));
             rb.angularVelocity = Random.Range(-boneMaxAng, boneMaxAng);
         }
+
         Destroy(gameObject);
     }
 }

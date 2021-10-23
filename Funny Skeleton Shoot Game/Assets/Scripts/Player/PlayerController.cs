@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer[] sprites;
     [SerializeField] private Transform throwStart;
     [SerializeField] private ThrowBone throwableBone;
+    [SerializeField] private AudioClip boneAddSound;
     private Camera cam;
     private void Start()
     {
@@ -56,6 +57,8 @@ public class PlayerController : MonoBehaviour
         if (throwableBones >= sprites.Length) return false;
         throwableBones++;
         UpdateBoneVisibilities();
+        if (boneAddSound != null)
+            SoundEffectPlayer.PlaySoundEffect(boneAddSound, 1f, 1.2f, 0.125f);
         return true;
     }
     private void ThrowBone()
