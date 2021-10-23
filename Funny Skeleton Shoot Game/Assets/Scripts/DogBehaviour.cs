@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DogBehaviour : MonoBehaviour, IDamagable
+public class DogBehaviour : MonoBehaviour, IDamagable, IPlayerCollide
 {
     enum State
     {
@@ -137,5 +137,10 @@ public class DogBehaviour : MonoBehaviour, IDamagable
         }
         transform.DetachChildren();
         Destroy(gameObject);
+    }
+
+    public void OnCollideWithPlayer(PlayerController player)
+    {
+        player.GetComponent<IDamagable>()?.TakeDamage(2);
     }
 }

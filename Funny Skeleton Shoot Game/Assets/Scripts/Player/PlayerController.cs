@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamagable
 {
     [SerializeField] private float moveSpeed, jumpHeight, throwStrength;
 
@@ -110,5 +112,12 @@ public class PlayerController : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         collision.transform.GetComponent<IPlayerCollide>()?.OnCollideWithPlayer(this);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        throwableBones -= damage;
+        if (throwableBones <= 0)
+            SceneManager.LoadScene(0);
     }
 }

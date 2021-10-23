@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameBehaviour : MonoBehaviour, IDamagable
+public class GameBehaviour : MonoBehaviour, IDamagable, IPlayerCollide
 {
     [SerializeField] int hp;
     bool facingRight = true;
@@ -61,4 +61,8 @@ public class GameBehaviour : MonoBehaviour, IDamagable
         Destroy(gameObject);
     }
 
+    public void OnCollideWithPlayer(PlayerController player)
+    {
+        player.GetComponent<IDamagable>()?.TakeDamage(1);
+    }
 }
